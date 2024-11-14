@@ -1,0 +1,32 @@
+﻿@if(Show)
+{
+    <div class="confirm-dialog-container">
+        <div class="confirm-dialog">
+            <div class="confirm-dialog-header">
+                Actions
+            </div>
+            <div class="confirm-dialog-body">
+                @ChildContent
+            </div>
+            <div class="confirm-dialog-footer">
+                <button class="btn btn-secondary shadow-none" @onclick="OnCancel">Cancel</button>
+                <button class="btn btn-danger shadow-none" @onclick="OnDelete">Delete</button>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    [Parameter]
+    public bool Show { get; set; }
+
+    [Parameter]
+    public EventCallback OnCancel { get; set; }
+
+    [Parameter]
+    public EventCallback OnDelete { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+}
